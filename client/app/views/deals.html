@@ -1,0 +1,28 @@
+
+<div class="container" ng-init = 'getDeals()'>
+  <div class="shadow">
+    <label>Search by city: <input ng-model="search.hotelInfo.hotelCity"></label>
+    <div class=" col-xs-12" ng-repeat ="hotel in hotels |filter:search">
+      <div class="box-customn" ng-if ='hotel.hotelInfo.hotelImageUrl'>
+        <div class="img-wrap-tailor">
+
+          <a href="{{hotel.hotelUrls.hotelInfositeUrl | decodeURIComponent}}" target="_blank"" > <img class="imge" src="{{hotel.hotelInfo.hotelImageUrl}}"  width="400" height="300"/> </a>
+          <span>Quick View</span>
+        </div>
+        <!-- show data here -->
+        <div class="imfo-area">
+          <p class="hotel-name" style="font-size:30px">{{hotel.hotelInfo.hotelName}} </p>
+          <p class="city-name" style="font-size:20px">{{hotel.hotelInfo.hotelCity}} </p>
+          <p>{{hotel.hotelInfo.description}}</p>
+          <h4>{{hotel.hotelPricingInfo.currency}}. {{hotel.hotelPricingInfo.totalPriceValue}}</h4>
+          from {{hotel.hotelInfo.travelStartDate}} to {{hotel.hotelInfo.travelEndDate}}
+          <br>
+          <span class="rate">{{hotel.hotelInfo.hotelGuestReviewRating}} &starf;</span>
+          <br>
+          <a href= "{{hotel.hotelUrls.hotelInfositeUrl | decodeURIComponent}}" target="_blank">
+            <button class="btn btn--deal icon-bg-icn_arrow_deal fl-trailing" style="font-size: 25px; color:black">Book Now</button></a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
